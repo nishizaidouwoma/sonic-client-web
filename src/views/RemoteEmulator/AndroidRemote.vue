@@ -703,6 +703,7 @@ const screenWebsocketOnmessage = (message) => {
   }
 };
 const websocketOnmessage = (message) => {
+  console.log(JSON.parse(message.data).msg);
   switch (JSON.parse(message.data).msg) {
     case 'perfDetail':
       androidPerfRef.value.setData(JSON.parse(message.data).detail);
@@ -737,6 +738,20 @@ const websocketOnmessage = (message) => {
           message: $t('androidRemoteTS.pullFile.success'),
         });
         pullResult.value = JSON.parse(message.data).url;
+      } else {
+        ElMessage.error({
+          message: $t('androidRemoteTS.pullFile.fail'),
+        });
+      }
+      break;
+    }
+    case 'logcatResult': {
+     logCatLoading.value = false;
+      if (JSON.parse(message.data).status === 'success') {
+        ElMessage.success({
+          message: $t('androidRemoteTS.pullFile.success'),
+        });
+        logCatResult.value = JSON.parse(message.data).url;
       } else {
         ElMessage.error({
           message: $t('androidRemoteTS.pullFile.fail'),
@@ -1428,6 +1443,18 @@ const pullFile = () => {
     JSON.stringify({
       type: 'pullFile',
       path: pullPath.value,
+    })
+  );
+};
+
+const logCatLoading = ref(false);
+const logCatResult = ref('');
+const logCatFile = () => {
+  logCatResult.value = '';
+  logCatLoading.value = true;
+  websocket.send(
+    JSON.stringify({
+      type: 'logcatFlie'
     })
   );
 };
@@ -2622,6 +2649,14 @@ const checkAlive = () => {
                   <div style="text-align: center">
                     <el-tabs type="border-card" stretch>
                       <el-tab-pane :label="$t('androidRemoteTS.code.upFile')">
+                                                <el-alert
+                          :title="$t('androidRemoteTS.code.updatePhoneFile')"
+                          type="info"
+                          show-icon
+                          :closable="false"
+                        >
+                        </el-alert>
+                        <div style="text-align: center; margin-top: 10px">
                         <el-upload
                           v-loading="fileLoading"
                           drag
@@ -2658,8 +2693,18 @@ const checkAlive = () => {
                             >Push
                           </el-button>
                         </div>
+                      </div>
                       </el-tab-pane>
                       <el-tab-pane :label="$t('androidRemoteTS.code.filePath')">
+                        <el-alert
+                          :title="$t('androidRemoteTS.code.pullPhoneFile')"
+                          type="info"
+                          show-icon
+                          :closable="false"
+                        >
+                        </el-alert>
+                        <div style="text-align: center; margin-top: 10px">
+
                         <el-input
                           v-model="pullPath"
                           size="mini"
@@ -2688,6 +2733,7 @@ const checkAlive = () => {
                             {{ $t('androidRemoteTS.code.installFile') }}
                           </el-button>
                         </a>
+                      </div>
                       </el-tab-pane>
                       <el-tab-pane
                         :label="$t('androidRemoteTS.code.scanQRCode')"
@@ -2723,6 +2769,48 @@ const checkAlive = () => {
                           </el-upload>
                         </div>
                       </el-tab-pane>
+                    </el-tabs>
+                  </div>
+                </el-card>
+              </el-col>
+
+              <el-col :span="12" style="margin-top: 15px">
+                <el-card>
+                  <template #header>
+                    <strong>日志下载</strong>
+                  </template>
+                  <div style="text-align: center">
+                    <el-tabs type="border-card" stretch>
+                        <el-alert
+                            :title="$t('androidRemoteTS.code.logboard')"
+                            type="info"
+                            show-icon
+                            :closable="false"
+                          >
+                        </el-alert>
+                        <el-button
+                          style="margin-top: 5px"
+                          size="mini"
+                          type="primary"
+                          :loading="logCatLoading"
+                          @click="logCatFile"
+                          >Pull
+                        </el-button>
+                        <a
+                          v-if="logCatResult.length !== 0"
+                          :href="logCatResult"
+                          download
+                          target="_blank"
+                        >
+                          <el-button
+                            style="margin-top: 5px; margin-left: 10px"
+                            size="mini"
+                            type="success"
+                          >
+                            {{ $t('androidRemoteTS.code.installFile') }}
+                          </el-button>
+                        </a>
+                   
                     </el-tabs>
                   </div>
                 </el-card>
