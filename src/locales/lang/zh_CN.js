@@ -262,7 +262,7 @@ const agent = {
   },
 };
 const devices = {
-  title: 'Sonic云真机平台',
+  title: '创梦云真机平台',
   list: '设备列表',
   form: {
     model: '设备型号',
@@ -345,7 +345,7 @@ const layout = {
   signOut: '注销',
   aboutSonic: '关于Sonic',
   backHome: '回到首页',
-  welcomeSpeech: '欢迎来到Sonic云真机测试平台，请选择项目进入',
+  welcomeSpeech: '欢迎来到创梦云真机测试平台，请选择项目进入',
   addProject: '新增项目',
   officialWebSite: 'Sonic官方网站',
   document: '使用文档',
@@ -557,7 +557,7 @@ const jobsTS = {
   del: '确定删除该定时任务吗？',
 };
 const loginTS = {
-  testPlatform: '一站式云真机测试平台',
+  testPlatform: '质量中心云真机测试平台',
   login: {
     message: '注册账号/LDAP域账号登录',
     register: '注册账号登录',
@@ -811,7 +811,10 @@ const androidRemoteTS = {
     pleaseText: '请输入要发送的文本，支持简体中文',
     clear: '清空输入框',
     send: '发送',
-    keyboard: '清空输入框与实时输入仅在Sonic输入法开启时可用',
+    keyboard: 'tips：可以直接在手机输入框内实时输入文本',
+    logboard: 'tips：可以获取使用设备时的全部日志，需先点击pull按钮获取日志等待下载按钮出现',
+    updatePhoneFile: 'tips：将PC文件传输到手机上，目标路径举例：/storage/emulated/0/xxx.txt',
+    pullPhoneFile: 'tips：将手机文件传输到电脑上，目标路径举例：/storage/emulated/0/xxx.txt',
     startKeyboard: '启动Sonic输入法',
     stopKeyboard: '禁用Sonic输入法',
     remoteADB: '远程ADB',
@@ -821,7 +824,7 @@ const androidRemoteTS = {
     closeDriverMessage: '停止UIAutomator2Server成功！',
     automaticInitialization: '下次进入自动初始化',
     scanQRCode: '扫描二维码',
-    errTitle: 'OPPO、vivo部分机型上传二维码后不出现在相册，需要重启后生效',
+    errTitle: 'tips：将PC二维码传输到手机相册路径，需要在手机上操作识别二维码功能使用；OPPO、vivo部分机型可能需要重启后才生效',
     messageThree: '将二维码图片拖到此处，或',
     messageFour: '只能上传jpg/png文件',
     fileTransfer: '文件互传',
@@ -870,7 +873,7 @@ const androidRemoteTS = {
     noScreenshots: '暂无截图',
     savePicture: '保存图片',
     precautions: '注意事项',
-    precautionsText: '该功能仍处于Beta测试中，暂时屏蔽reboot、rm、su等风险指令',
+    precautionsText: 'Logcat功能可以获取实时日志，需要点击Search按钮开始使用',
     inputSend: '输入指令后，点击Send或回车发送',
     enterInput: '请输入输入过滤文本',
     UIAutomation: {
