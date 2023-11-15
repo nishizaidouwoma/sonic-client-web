@@ -70,6 +70,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <!--
   <a
     style="float: right; margin-bottom: 20px"
     href="https://sonic-cloud.cn/sch"
@@ -79,6 +80,7 @@ onMounted(() => {
       $t('packagesTS.accessGuide')
     }}</el-button></a
   >
+  -->
   <el-table :data="pageData['content']" border @filter-change="filter">
     <el-table-column
       width="80"
