@@ -283,7 +283,15 @@ const changeLocaleHandler = function (val) {
             <el-menu-item index="1-2" @click="dialogChangePwd = true">{{
               $t('layout.changePassword')
             }}</el-menu-item>
-            <el-menu-item index="1-4" @click="dialogToken = true"
+            <el-menu-item index="1-3" @click="logout">{{
+              $t('layout.signOut')
+            }}</el-menu-item>
+             <el-menu-item
+                index="2-1"
+                @click="goToUrl('https://idreamsky.feishu.cn/sheets/SObas4Owbhx2BUt7vAAcCPWSnLg')"
+                >问题反馈
+              </el-menu-item>
+              <el-menu-item index="1-4" @click="dialogToken = true"
               >Access Token</el-menu-item
             >
             <el-sub-menu index="2">
