@@ -200,6 +200,7 @@ const changeLocaleHandler = function (val) {
           mode="horizontal"
           class="el-menu-horizontal-demo font"
         >
+        <!--
           <el-sub-menu index="Language">
             <template #title>{{ $t('layout.languages') }}</template>
             <el-menu-item
@@ -216,6 +217,7 @@ const changeLocaleHandler = function (val) {
               ></el-badge>
             </el-menu-item>
           </el-sub-menu>
+             -->
         </el-menu>
       </div>
       <div class="flex-center">
@@ -283,55 +285,21 @@ const changeLocaleHandler = function (val) {
             <el-menu-item index="1-2" @click="dialogChangePwd = true">{{
               $t('layout.changePassword')
             }}</el-menu-item>
-            <el-menu-item index="1-3" @click="logout">{{
-              $t('layout.signOut')
-            }}</el-menu-item>
              <el-menu-item
                 index="2-1"
                 @click="goToUrl('https://idreamsky.feishu.cn/sheets/SObas4Owbhx2BUt7vAAcCPWSnLg')"
                 >问题反馈
               </el-menu-item>
+              <el-menu-item
+                index="2-2"
+                @click="goToUrl('https://idreamsky.feishu.cn/docx/Hr6cd0wFfodHeGx33gbcnhHxnAc')"
+                >使用指南
+              </el-menu-item>
+              <!--
               <el-menu-item index="1-4" @click="dialogToken = true"
               >Access Token</el-menu-item
             >
-            <el-sub-menu index="2">
-              <template #title
-                ><span class="flex-center font title"
-                  ><img style="margin-right: 5px" width="20" :src="logo" />{{
-                    $t('layout.aboutSonic')
-                  }}</span
-                >
-              </template>
-              <el-menu-item
-                index="2-1"
-                @click="goToUrl('https://sonic-cloud.cn/home')"
-                >{{ $t('layout.officialWebSite') }}
-              </el-menu-item>
-              <el-menu-item
-                index="2-0"
-                @click="goToUrl('https://sonic-cloud.cn/document')"
-                >{{ $t('layout.document') }}
-              </el-menu-item>
-              <el-menu-item
-                index="2-2"
-                @click="goToUrl('https://sonic-cloud.cn/version')"
-                >{{ $t('layout.versionUpdateRecord') }}
-                <el-badge value="New" style="margin: 0 0 5px 5px"></el-badge>
-              </el-menu-item>
-              <el-menu-item
-                index="2-3"
-                @click="
-                  goToUrl(
-                    axios.defaults.baseURL.substring(
-                      0,
-                      axios.defaults.baseURL.length - 4
-                    ) + '/doc.html'
-                  )
-                "
-              >
-                REST API
-              </el-menu-item>
-            </el-sub-menu>
+            -->
             <el-menu-item index="1-3" @click="logout">{{
               $t('layout.signOut')
             }}</el-menu-item>

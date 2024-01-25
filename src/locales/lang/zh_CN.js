@@ -345,7 +345,7 @@ const layout = {
   signOut: '注销',
   aboutSonic: '关于Sonic',
   backHome: '回到首页',
-  welcomeSpeech: '欢迎来到创梦云真机测试平台，请选择项目进入',
+  welcomeSpeech: '欢迎来到创梦云真机平台，请选择项目进入',
   addProject: '新增项目',
   officialWebSite: 'Sonic官方网站',
   document: '使用文档',
@@ -560,7 +560,7 @@ const loginTS = {
   testPlatform: '质量中心云真机测试平台',
   login: {
     message: '注册账号/LDAP域账号登录',
-    register: '注册账号登录',
+    register: '账号登录',
     LDAPLogin: 'LDAP域账号登录',
   },
   user: {
@@ -834,7 +834,7 @@ const androidRemoteTS = {
     filePath: '拉取文件',
     pullFilePath: '请输入拉取目标路径',
     installFile: '下载文件',
-    app: '应用程序',
+    app: '应用安装',
     pushInstall: '上传安装',
     apkFile: '将APK文件拖到此处，或',
     onlyAPKFile: '只能上传apk文件',

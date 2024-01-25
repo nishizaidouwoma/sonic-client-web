@@ -3159,7 +3159,7 @@ const checkAlive = () => {
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="Terminal" name="terminal">
+          <el-tab-pane label="实时日志" name="terminal">
             <el-alert
               :title="$t('androidRemoteTS.code.precautions')"
               type="warning"
@@ -3224,7 +3224,7 @@ const checkAlive = () => {
                   </div>
                 </el-card>
               </el-tab-pane>
-              <el-tab-pane label="Logcat">
+              <el-tab-pane label="Logcat日志">
                 <el-card
                   style="border: 0px"
                   :body-style="{
